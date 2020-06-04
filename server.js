@@ -12,6 +12,16 @@ app.get('/api/customers', (req, res) => {
   res.json(customers);
 });
 
+app.post('/api/employees', (req, res) => {
+  const employees = [
+    {id: 1, firstName: 'Julia', lastName: 'Calandro'},
+    {id: 2, firstName: 'Steve', lastName: 'Mason'},
+    {id: 3, firstName: 'Joshua', lastName: 'Denham'},
+  ];
+
+  res.json(employees);
+});
+
 const port = 5000;
 
 app.listen(port, () => `Server running on port ${port}`);

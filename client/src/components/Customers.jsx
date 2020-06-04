@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import './customers.css';
+import './Customers.css';
+import axios from 'axios';
 
 class Customers extends Component {
   constructor() {
@@ -10,9 +11,10 @@ class Customers extends Component {
   }
 
   componentDidMount() {
-    fetch('/api/customers')
-      .then(res => res.json())
-      .then(customers => this.setState({customers}, () => console.log('Customers fetched...', customers)));
+    axios.get('/api/customers').then(response => {
+      this.setState({ customers: response.data });
+      console.log('Customers fetched...', response.data);
+    });
   }
 
   render() {
